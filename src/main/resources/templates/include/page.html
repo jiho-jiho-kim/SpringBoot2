@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="test(pageName, pageVo)">
+	<div class="page">
+		<ul>
+			<li><a
+				th:href="@{${pageName}(page = 1, 
+										amount=${pageVo.amount},
+										searchName=${pageVo.cri.searchName},
+										searchContent=${pageVo.cri.searchContent},
+										searchPrice=${pageVo.cri.searchPrice},
+										startDate=${pageVo.cri.startDate},
+										endDate=${pageVo.cri.endDate}
+										)}">
+																			 
+					<i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+			
+			<li th:if="${pageVo.prev}"><a
+				th:href="@{productList(page=${pageVo.start - 1},
+										amount=${pageVo.amount},
+										searchName=${pageVo.cri.searchName},
+										searchContent=${pageVo.cri.searchContent},
+										searchPrice=${pageVo.cri.searchPrice},
+										startDate=${pageVo.cri.startDate},
+										endDate=${pageVo.cri.endDate} )}">
+					<iclass="fa fa-angle-left" aria-hidden="true"></i></a></li>
+					
+			<th:block th:each="num : ${pageVo.pageList}">
+				<li th:class="${pageVo.page == num ? 'on' : '' }"><a
+					th:href="@{productList(page=${num},
+								 amount=${pageVo.amount},
+								searchName=${pageVo.cri.searchName},
+								searchContent=${pageVo.cri.searchContent},
+								searchPrice=${pageVo.cri.searchPrice},
+								startDate=${pageVo.cri.startDate},
+								endDate=${pageVo.cri.endDate} 
+								)}">[[${num}]]</a>
+				</li>
+			</th:block>
+
+
+
+			<li th:if="${pageVo.next}"><a
+				th:href="@{productList(page=${pageVo.end + 1},
+										amount=${pageVo.amount},
+										searchName=${pageVo.cri.searchName},
+										searchContent=${pageVo.cri.searchContent},
+										searchPrice=${pageVo.cri.searchPrice},
+										startDate=${pageVo.cri.startDate},
+										endDate=${pageVo.cri.endDate} )}"><i
+					class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+			<li><a
+				th:href="@{productList(page=${pageVo.realEnd},  
+									amount=${pageVo.amount},
+									searchName=${pageVo.cri.searchName},
+									searchContent=${pageVo.cri.searchContent},
+									searchPrice=${pageVo.cri.searchPrice},
+									startDate=${pageVo.cri.startDate},
+									endDate=${pageVo.cri.endDate})}"><i
+					class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+
+		</ul>
+	</div>
+
+</th:block>
+
+</html>

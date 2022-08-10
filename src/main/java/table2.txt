@@ -1,0 +1,7 @@
+create table noticeboard (
+	nb_no int primary key auto_increment,
+    nb_writer varchar(30) not null,
+    nb_title varchar(50),
+    nb_content varchar(300),
+    nb_regdate timestamp default current_timestamp
+    );

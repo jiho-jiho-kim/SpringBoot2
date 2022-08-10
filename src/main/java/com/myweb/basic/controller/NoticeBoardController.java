@@ -13,6 +13,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.myweb.basic.command.NoticeBoardVo;
 import com.myweb.basic.noticeBoard.NoticeBoardService;
@@ -32,7 +33,7 @@ public class NoticeBoardController {
 	
 	@GetMapping("/noticeBoardListAll")
 	public String boardListAll (Model model) {
-		List <NoticeBoardVo> list = noticeBoardService.getListMe();
+		List <NoticeBoardVo> list = noticeBoardService.getListAll();
 		model.addAttribute("list", list);
 		
 		return "noticeBoard/noticeBoardListAll";
@@ -47,7 +48,11 @@ public class NoticeBoardController {
 	}
 	
 	@GetMapping("/noticeBoardDetail")
-	public String boardDetail () {
+	public String boardDetail (@RequestParam("nb_no") int nb_no, Model model) {
+		
+		NoticeBoardVo vo = noticeBoardService.getDetail(nb_no);
+		model.addAttribute("vo", vo);
+		
 		return "noticeBoard/noticeBoardDetail";
 	}
 	

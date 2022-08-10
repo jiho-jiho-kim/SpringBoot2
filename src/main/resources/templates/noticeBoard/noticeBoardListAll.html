@@ -57,7 +57,7 @@
 							<li class="collum_tit">
 								<h2>판매자 소통공간</h2>
 
-								<select class="">
+								<select class="" >
 									<option value="10">10개 보기</option>
 									<option value="20">20개 보기</option>
 									<option value="40">40개 보기</option>
@@ -75,17 +75,17 @@
 												<th>등록일</th>
 											</tr>
 												
-											<tr th:each="vo, status : ${list}">
-												<td>1</td>
-												<td>admin</td>
-												<td>오늘은 해가뜨려나?</td>
+											<tr th:each="vo, listAll : ${list}">
+												<td>[[${vo.nb_no}]]</td>
+												<td>[[${vo.nb_id}]]</td>
+												<td>[[${vo.nb_title}]]</td>
 												<td>
-													<a title="상세보기(클릭)" href="#">오늘은 비가오려나?</a>
+													<a title="상세보기(클릭)" th:href="@{noticeBoardDetail(nb_no = ${vo.nb_no} )}">[[${vo.nb_content}]]</a>
 												</td>
-												<td>2016-01-01</td>
+												<td>[[${#temporals.format(vo.nb_regdate, 'yyyy-MM-dd') }]]</td>
 											</tr>
 
-                                            <tr>
+                                           <!-- <tr>
 												<td>1</td>
 												<td>coding404</td>
 												<td>안녕하세요!</td>
@@ -93,7 +93,7 @@
 													<a title="상세보기(클릭)" href="#">오늘은 해가뜬데요.</a>
 												</td>
 												<td>2016-01-01</td>
-											</tr>
+											</tr> -->
 										</table>
 
 
@@ -205,6 +205,7 @@
 						</ul>
 				</div>
 		</div>
-
+		
+	
 
 </html>

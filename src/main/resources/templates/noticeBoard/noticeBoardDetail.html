@@ -18,7 +18,7 @@
 						</div>
 					</div>
                     <div class="page_title">게시글 연습 ><span class="page_subtitle">글 상세보기</span></div>
-                    <form name="#####" action="#####" method="post">
+                    <form name="#####" action="#####" method="get">
                         <div class="full_collum collum">
                             <ul>
                                 <li class="collum_tit">
@@ -32,22 +32,22 @@
                                                 <tr>
                                                     <th>등록일</th>
                                                     <td>
-                                                        <span>2016-01-01</span>
+                                                        <span>[[${#temporals.format(vo.nb_regdate, 'yyyy-MM-dd') }]]</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th>아이디</th>
-                                                    <td>admin</td>
+                                                    <td>[[${vo.nb_id}]]</td>
                                                 </tr>
 
                                                 <tr>
                                                     <th>제목</th>
-                                                    <td colspan="5">오늘은 해가뜨려나?</td>
+                                                    <td colspan="5">[[${vo.nb_title}]]</td>
                                                 </tr>
                                                 <tr>
                                                     <th>내용</th>
                                                     <td colspan="5">
-                                                        <div style="min-height: 300px;">오늘은 비가오려나?
+                                                        <div style="min-height: 300px;">[[${vo.nb_content}]]
                                                         </div>
                                                     </td>
                                                 </tr>

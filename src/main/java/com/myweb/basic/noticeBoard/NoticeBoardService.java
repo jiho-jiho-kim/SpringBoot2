@@ -11,4 +11,6 @@ public interface NoticeBoardService {
 	public List<NoticeBoardVo> getListMe();
 	
 	public List<NoticeBoardVo> getListAll();
+	
+	public NoticeBoardVo getDetail(int nb_no);
 }

@@ -11,8 +11,10 @@ public interface NoticeBoardMapper {
 	
 	public boolean noticeRegist(NoticeBoardVo vo);
 	
-	public List<NoticeBoardVo> getListMe();
+	public List<NoticeBoardVo> getListMe();	//내글 조회
 	
-	public List<NoticeBoardVo> getListAll();
+	public List<NoticeBoardVo> getListAll(); //전체조회
+	
+	public NoticeBoardVo getDetail(int nb_no); //상세보기
 
 }

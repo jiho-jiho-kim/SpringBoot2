@@ -19,6 +19,10 @@
 
 
 	<select id="getListAll" resultType="NoticeBoardVo">
-		select * from noticeboard 
+		select * from noticeboard
+	</select>
+	
+	<select id="getDetail" resultType="NoticeBoardVo">
+		select * from noticeboard where nb_no = #{nb_no}
 	</select>
 </mapper>

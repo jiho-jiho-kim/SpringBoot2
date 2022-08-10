@@ -30,5 +30,11 @@ public class NoticeBoardServiceImpl implements NoticeBoardService {
 		
 		return noticeBoardMapper.getListAll();
 	}
+
+	@Override
+	public NoticeBoardVo getDetail(int nb_no) {
+		
+		return noticeBoardMapper.getDetail(nb_no);
+	}
 	
 }
